@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Audoin Sabrié — Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f7f7f5;
+            color: #171717;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+            padding: 0 30px;
+        }
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 110px 0 100px;
+        }
+
+        .hero p.intro {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 82px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            font-size: 20px;
+            color: #555;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid #171717;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #171717;
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            max-width: 700px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 30px;
+        }
+
+        .year {
+            color: #777;
+        }
+
+        .timeline-item h3 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: #666;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            border: 1px solid #d8d8d8;
+            border-radius: 8px;
+            padding: 28px;
+            background: white;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #999;
+        }
+
+        .card-number {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .teaching {
+            background: #171717;
+            color: white;
+            border-top: none;
+        }
+
+        .teaching .section-title {
+            color: #aaa;
+        }
+
+        .teaching-content {
+            max-width: 700px;
+        }
+
+        .teaching h2 {
+            font-size: 40px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .teaching p {
+            color: #bbb;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .teaching .button {
+            border-color: white;
+        }
+
+        .teaching .button:hover {
+            background: white;
+            color: #171717;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid #ddd;
+            color: #888;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .teaching h2,
+            .contact h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">AUDOIN SABRIÉ</div>
+
+            <ul>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#enseignement">Enseignement</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+
+    <!-- ACCUEIL -->
+    <section class="hero">
+        <div class="container">
+
+            <p class="intro">
+                M2 Ingénierie du Risque en Finance et Assurance · Paris 1 Panthéon-Sorbonne
+            </p>
+
+            <h1>
+                Audoin<br>
+                Sabrié.
+            </h1>
+
+            <p class="hero-description">
+                Étudiant en finance quantitative, intéressé par la modélisation
+                mathématique, la gestion des risques et l'analyse de données.
+            </p>
+
+            <div class="buttons">
+                <a class="button" href="cv_apprentissage_A_SABRIÉ.pdf">
+                    Voir mon CV →
+                </a>
+
+                <a class="button" href="#projets">
+                    Mes projets →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PARCOURS -->
+    <section id="parcours">
+        <div class="container">
+
+            <div class="section-title">01 — Parcours</div>
+
+            <div class="about">
+
+                <div>
+                    <h2>Formation</h2>
+                </div>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="year">2026 — 2027</div>
+
+                        <div>
+                            <h3>M2 Ingénierie du Risque en Finance et Assurance</h3>
+                            <p>
+                                Université Paris 1 Panthéon-Sorbonne
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">2025 — 2026</div>
+
+                        <div>
+                            <h3>M1 Mathématiques Appliquées à l'Économie et à la Finance</h3>
+                            <p>
+                                Université Paris 1 Panthéon-Sorbonne
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">2024 — 2025</div>
+
+                        <div>
+                            <h3>Licence MIASHS — Parcours Économie</h3>
+                            <p>
+                                Université Paris 1 Panthéon-Sorbonne
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROJETS -->
+    <section id="projets">
+        <div class="container">
+
+            <div class="section-title">02 — Travaux & projets</div>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-number">01</div>
+
+                    <h3>Mémoire de M1</h3>
+
+                    <p>
+                        Travail de recherche réalisé dans le cadre du Master
+                        Mathématiques Appliquées à l'Économie et à la Finance.
+                    </p>
+
+                    <a class="card-link" href="TER-Cyriaque-Audoin.pdf">
+                        Consulter le mémoire →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-number">02</div>
+
+                    <h3>Finance quantitative</h3>
+
+                    <p>
+                        Méthodes stochastiques, simulation de Monte-Carlo,
+                        gestion des risques et modélisation financière.
+                    </p>
+
+                    <span class="card-link">
+                        À venir
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-number">03</div>
+
+                    <h3>Économétrie & statistiques</h3>
+
+                    <p>
+                        Régression, séries temporelles, statistiques
+                        appliquées et analyse de données avec R et Python.
+                    </p>
+
+                    <span class="card-link">
+                        À venir
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-number">04</div>
+
+                    <h3>Programmation</h3>
+
+                    <p>
+                        Projets en Python, R et SQL autour de l'analyse
+                        quantitative et de la finance.
+                    </p>
+
+                    <span class="card-link">
+                        À venir
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ENSEIGNEMENT -->
+    <section class="teaching" id="enseignement">
+
+        <div class="container">
+
+            <div class="section-title">03 — Enseignement</div>
+
+            <div class="teaching-content">
+
+                <h2>
+                    Cours particuliers de mathématiques
+                </h2>
+
+                <p>
+                    Plus de 900 heures de cours dispensées auprès d'élèves
+                    suivis régulièrement, du collège à l'enseignement supérieur.
+                </p>
+
+                <a class="button" href="#">
+                    Accéder aux ressources →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">04 — Contact</div>
+
+            <h2>Travaillons ensemble.</h2>
+
+            <p>
+                Pour une opportunité professionnelle, un projet ou une question.
+            </p>
+
+            <div class="buttons" style="justify-content: center;">
+
+                <a class="button" href="mailto:audoinsabrie@icloud.com">
+                    audoinsabrie@icloud.com
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        © 2026 Audoin Sabrié · Portfolio personnel
+    </div>
+</footer>
+
+</body>
+</html>

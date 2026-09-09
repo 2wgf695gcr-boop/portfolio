@@ -1,1 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Projets — Audoin Sabrié</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f7f7f5;
+            color: #171717;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+            padding: 0 30px;
+        }
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ─── HERO ───────────────────────────────────────────── */
+
+        .hero {
+            padding: 90px 0 80px;
+        }
+
+        .hero .intro {
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 78px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            max-width: 680px;
+            font-size: 20px;
+            color: #555;
+        }
+
+        /* ─── SECTIONS ───────────────────────────────────────── */
+
+        section {
+            padding: 70px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        /* ─── PROJECT ────────────────────────────────────────── */
+
+        .project {
+            background: white;
+            border: 1px solid #d8d8d8;
+            border-radius: 8px;
+            padding: 38px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .project-number {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .project h2 {
+            font-size: 30px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .project-context {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .project-description {
+            max-width: 780px;
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        /* ─── TAGS ───────────────────────────────────────────── */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 5px 11px;
+            font-size: 12px;
+            color: #666;
+            background: #fafafa;
+        }
+
+        /* ─── DOCUMENT PRINCIPAL ────────────────────────────── */
+
+        .main-document {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .main-document-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .main-document h3 {
+            font-size: 19px;
+            margin-bottom: 7px;
+        }
+
+        .main-document p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .main-button {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid #171717;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .main-button:hover {
+            background: #171717;
+            color: white;
+        }
+
+        /* ─── RESSOURCES ─────────────────────────────────────── */
+
+        .resources {
+            margin-top: 28px;
+        }
+
+        .resources-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+        }
+
+        .resource-link {
+            font-size: 13px;
+            color: #666;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+
+        .resource-link:hover {
+            color: #171717;
+            border-color: #171717;
+        }
+
+        /* ─── FOOTER ─────────────────────────────────────────── */
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid #ddd;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* ─── MOBILE ─────────────────────────────────────────── */
+
+        @media (max-width: 700px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .project {
+                padding: 25px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .project h2 {
+                font-size: 25px;
+            }
+
+            .project-description {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+
+        <nav>
+
+            <div class="logo">
+                AUDOIN SABRIÉ
+            </div>
+
+            <ul>
+                <li>
+                    <a href="./index.html#parcours">
+                        Parcours
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./projets.html">
+                        Projets
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./enseignement.html">
+                        Enseignement
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./index.html#contact">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <p class="intro">
+                Travaux académiques & projets personnels
+            </p>
+
+            <h1>
+                Projets.
+            </h1>
+
+            <p class="hero-description">
+                Une sélection de travaux réalisés au cours de mon parcours
+                en mathématiques appliquées, statistiques, économétrie,
+                finance quantitative et programmation.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATISTIQUES & ÉCONOMÉTRIE -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                01 — Statistiques & économétrie
+            </div>
+
+
+            <article class="project">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <div class="project-number">
+                            PROJET 01
+                        </div>
+
+                        <h2>
+                            Analyse et prévision d'une série temporelle
+                        </h2>
+
+                        <p class="project-context">
+                            M1 — Mathématiques Appliquées à l'Économie et à la Finance
+                            · Statistiques 2 : Analyse de séries temporelles
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p class="project-description">
+                    Analyse quantitative d'une série temporelle sous R :
+                    diagnostic de la série, décomposition tendance/saisonnalité,
+                    stationnarisation, identification de modèles ARMA et SARIMA,
+                    sélection par AIC/BIC et validation des performances par
+                    backtesting.
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">R</span>
+                    <span class="tag">Séries temporelles</span>
+                    <span class="tag">ARMA</span>
+                    <span class="tag">SARIMA</span>
+                    <span class="tag">ADF</span>
+                    <span class="tag">ACF / PACF</span>
+                    <span class="tag">AIC / BIC</span>
+                    <span class="tag">Backtesting</span>
+
+                </div>
+
+
+                <!-- DOCUMENT PRINCIPAL -->
+
+                <div class="main-document">
+
+                    <div class="main-document-label">
+                        Document principal
+                    </div>
+
+                    <h3>
+                        Rendu du devoir — 36 pages
+                    </h3>
+
+                    <p>
+                        Analyse complète de la série, modélisation,
+                        comparaison des modèles et prévisions.
+                    </p>
+
+                    <a
+                        class="main-button"
+                        href="./projets/serie_temp_DM.pdf"
+                        target="_blank"
+                    >
+                        Consulter le rendu →
+                    </a>
+
+                </div>
+
+
+                <!-- DOCUMENTS ASSOCIÉS -->
+
+                <div class="resources">
+
+                    <div class="resources-title">
+                        Documents associés
+                    </div>
+
+                    <div class="resource-links">
+
+                        <a
+                            class="resource-link"
+                            href="./projets/serie_temp_SUJ.pdf"
+                            target="_blank"
+                        >
+                            Sujet du DM
+                        </a>
+
+                        <a
+                            class="resource-link"
+                            href="./projets/serie_temp_DATA.txt"
+                            target="_blank"
+                        >
+                            Données
+                        </a>
+
+                        <a
+                            class="resource-link"
+                            href="./projets/serie_temp_pred_arma.txt"
+                            target="_blank"
+                        >
+                            Prédictions ARMA
+                        </a>
+
+                        <a
+                            class="resource-link"
+                            href="./projets/serie_temp_pred_sarima.txt"
+                            target="_blank"
+                        >
+                            Prédictions SARIMA
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- AUTRES TRAVAUX -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                02 — Autres travaux
+            </div>
+
+            <p style="color: #777; max-width: 650px;">
+                D'autres projets en statistiques, économétrie,
+                finance quantitative et programmation seront ajoutés
+                progressivement.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+        © 2026 Audoin Sabrié · Portfolio personnel
+    </div>
+
+</footer>
+
+</body>
+</html>
